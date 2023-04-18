@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+<div>
+    <form method="POST" action="" enctype="multipart/form-data">
+        {{ form.hidden_tag() }}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">Add Photo to the Note</legend>
+            <div>
+                {{ form.photo.label(class="form-control-label") }}
+                {{ form.photo(class="form-control-file")}}
+            </div>
+        </fieldset>
+        <div>
+            {{ form.submit (class="btn btn-secondary")}}
+        </div>
+    </form>
+</div>
+{% endblock content %}

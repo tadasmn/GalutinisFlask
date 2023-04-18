@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div>
+    <h1>Notes</h1>
+    {% if notes %}
+        {% for note in notes %}
+            <hr>
+            <p>ID: {{ note.id }}</p>
+            <p>Note name: {{ note.name }}</p>
+            <p>Note text: {{ note.text }}</p>
+            <a href="{{url_for('addNotePhoto', id = note.id)}}"><button class="btn btn-info">Add Photo</button></a>
+            <a href="{{url_for('photo', note_id = note.id)}}"><button class="btn btn-info">Photo</button></a>
+            <a href="{{url_for('update_note', note_id = note.id)}}"><button class="btn btn-warning">Update Note</button></a>
+            <a href="/delete/{{note.id}}/note"> <button class="btn btn-danger">Delete</button> </a>    
+            {% endfor %}
+        {%else%}
+        No Notes yet in this category
+     {% endif %}
+     
+</div>
+<div class="content-section">
+    <form method="post" action="#">
+    {{ form.hidden_tag() }}
+    <fieldset class="form-group">
+        <legend class="border-bottom mb-4">Add New Note</legend>
+    <div>
+        {{ form.name.label (class="form-control-label")}}
+        {{ form.name (class="form-control form-control-lg")}}
+    </div>
+    <div>
+        {{ form.text.label (class="form-control-label")}}
+        {{ form.text (class="form-control form-control-lg")}}
+    </div>
+    {{ form.submit (class="btn btn-secondary")}}
+    </div>
+    </form>
+</div>
+
+{% endblock  %}
+ 

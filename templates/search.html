@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="photo">
+<h1>Search results</h1>
+{% if notes%}
+    {% for note in notes%}
+        {%if note.user_id == current_user.id:%}    
+            <p>Note ID:{{note.id}}</p>
+            <p>Note name:{{note.name}}</p>
+            <p>Note text: {{note.text}}</p>
+            <hr>
+        {%endif%}
+        {%endfor%}     
+    {%else%}
+    No notes based on search criteria    
+{%endif%}
+
+</div>
+
+ 
+{% endblock content %}
