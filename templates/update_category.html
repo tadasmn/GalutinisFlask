@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="content-section">
+    <form method="POST" action="">
+        {{ form.hidden_tag() }}
+        <fieldset class="form-group">
+            <legend >Category Update</legend>
+            <div >
+                {{ form.name.label (class="form-control-label")}} 
+                {{ form.name (class="form-control form-control-lg")}}
+            </div>
+        </fieldset>
+        <div class="form-group">
+            {{ form.submit (class="btn btn-secondary")}}
+        </div>
+    </form>
+</div>
+{% endblock content %}
